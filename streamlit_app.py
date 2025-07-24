@@ -9,7 +9,7 @@ st.title(":cup_with_straw: Customize Your Smoothie! :cup_with_straw: ")
 st.write( """Choose the fruits you want in your custom Smoothie!"""
 )
 
-name_on_order = st.text_input(' Name on Smoothie')
+name_on_order = st.text_input('Name on Smoothie')
 st.write('The name on your Smoothie will be: ', name_on_order)
 
 cnx=st.connection("snowflake")
@@ -26,7 +26,7 @@ if ingredients_list:
 
     for fruit_chosen in ingredients_list:
         ingredients_string += fruit_chosen + ' '
-        st.subheader(fruit_chosen+'Nutrition Information')
+        st.subheader(fruit_chosen+' Nutrition Information')
         smoothiefroot_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_chosen)
         sf_df=st.dataframe(data=smoothiefroot_response.json(),use_container_width=True)
 
